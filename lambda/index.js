@@ -37,7 +37,7 @@ const RatingIntentHandler = {
         console.log(rating);
         
         if(rating == 'the greatest' || rating == 'the best'){
-           speakOutput += 'The greatest movie is Inception';
+           speakOutput += 'The greatest movie is The Shawshank Redemption (1994)';
         }else if(rating == 'the worst'){
            speakOutput += 'The movie with the worst IMDb rating and number of IMDb votes of at least 73,392 is Reis at 1 out of 10.' ;
         }else{
