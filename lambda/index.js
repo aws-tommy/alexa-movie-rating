@@ -10,7 +10,6 @@ const LaunchRequestHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
     handle(handlerInput) {
-        //const speakOutput = 'Welcome, you can say Hello or Help. Also, you can say movie rating to start rating the movie.';
         const speakOutput = 'Welcome, you could start rating the movie.';
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -29,17 +28,14 @@ const RatingIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ratingIntent';
     },
     handle(handlerInput) {
-        //const speakOutput = 'Welcome, you can say Hello or Help. Also, you can say movie rating to start rating the movie.';
         //const rating = handlerInput.requestEnvelope.request.intent.slots.rating.value; 
         const rating = Alexa.getSlotValue(handlerInput.requestEnvelope,'rating')
-        let speakOutput = `You would like to find ${rating} movie !! According to our system,`;
-        
-        console.log(rating);
+        let speakOutput =  '';
         
         if(rating == 'the greatest' || rating == 'the best'){
-           speakOutput += 'The greatest movie is The Shawshank Redemption (1994)';
+           speakOutput = 'The best movie is The Shawshank Redemption (1994). IMDb rating is 9.3';
         }else if(rating == 'the worst'){
-           speakOutput += 'The movie with the worst IMDb rating and number of IMDb votes of at least 73,392 is Reis at 1 out of 10.' ;
+           speakOutput = 'The worst movie is Reis. IMDb rating is 1' ;
         }else{
            speakOutput = 'Sorry! Could not find the information.'
         }
@@ -88,7 +84,7 @@ const CancelAndStopIntentHandler = {
                 || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent');
     },
     handle(handlerInput) {
-        const speakOutput = 'Goodbye!';
+        const speakOutput = 'Leaving movie rating intent. Goodbye!';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)

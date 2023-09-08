@@ -44,9 +44,7 @@
           ],
           "name": "ratingIntent",
           "samples": [
-            "who is {rating} movie ever",
-            "the worst",
-            "the greatest"
+            "which is the {rating} movie"
           ]
         }
       ],
@@ -55,7 +53,7 @@
           "values": [
             {
               "name": {
-                "value": "the greatest"
+                "value": "the best"
               }
             },
             {
@@ -65,14 +63,14 @@
             },
             {
               "name": {
-                "value": "the best"
+                "value": "the greatest"
               }
             }
           ],
           "name": "ratingSlot"
         }
       ],
-      "invocationName": "movie rating go"
+      "invocationName": "movie rating"
     }
   }
 }
